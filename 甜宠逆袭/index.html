@@ -35,26 +35,29 @@
             border-bottom: 3px solid #f5576c;
             padding-bottom: 10px;
         }
-        .chapter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
+        .chapter-list ul {
+            list-style: none;
+            padding: 0;
         }
-        .chapter-item {
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            text-align: center;
+        .chapter-list li {
+            border-bottom: 1px solid #eee;
             transition: all 0.3s;
         }
-        .chapter-item:hover {
-            border-color: #f5576c;
+        .chapter-list li:last-child {
+            border-bottom: none;
+        }
+        .chapter-list li:hover {
             background: #fff5f7;
         }
-        .chapter-item a {
+        .chapter-list li a {
+            display: block;
+            padding: 15px 20px;
             color: #333;
             text-decoration: none;
-            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .chapter-list li a:hover {
+            color: #f5576c;
         }
         .back-btn {
             display: inline-block;
@@ -76,14 +79,15 @@
     <div class="container">
         <div class="chapter-list">
             <h2>章节目录</h2>
-            <div class="chapter-grid" id="chapters"></div>
+            <ul id="chapters"></ul>
         </div>
     </div>
     <script>
         const chapterTitles = ["第一章 重生归来","第二章 晚宴风云","第三章 初次交锋","第四章 达成合作","第五章 暗流涌动","第六章 英雄救美","第七章 风雨欲来","第八章 绝地反击","第九章 真相大白","第十章 甜蜜日常","第十一章 盛大婚礼","第十二章 蜜月之旅","第十三章 事业腾飞","第十四章 真相浮现","第十五章 喜得贵子","第十六章 幸福家庭","第十七章 二胎降临","第十八章 儿女成长","第十九章 十年之约","第二十章 白头偕老","第二十一章 新的起点","第二十二章 第一个受助者","第二十三章 风波再起","第二十四章 真相大白","第二十五章 事业新高峰","第二十六章 异国风波","第二十七章 商业谈判","第二十八章 归国","第二十九章 新的挑战","第三十章 危机解除","第三十一章 念念上学","第三十二章 校园小风波","第三十三章 二胎计划","第三十四章 意外怀孕","第三十五章 孕期生活","第三十六章 生产","第三十七章 月子风波","第三十八章 新手爸妈","第三十九章 重返职场","第四十章 职场妈妈","第四十一章 悦悦周岁","第四十二章 旧人重逢","第四十三章 和解","第四十四章 王美玲的消息","第四十五章 放下仇恨","第四十六章 新的开始","第四十七章 念念的成长","第四十八章 设计比赛","第四十九章 悦悦学步","第五十章 结婚五周年","第五十一章 事业新挑战","第52章 转型成功","第53章 慈善晚宴","第54章 意外之客","第55章 家庭旅行","第56章 悦悦生病","第57章 平安归来","第58章 念念的烦恼","第59章 父子谈心","第60章 悦悦说话","第61章 林建国再婚","第62章 新的家人","第63章 顾母生日","第64章 意外惊喜","第65章 浪漫之旅","第66章 归家","第67章 念念升学","第68章 青春期前兆","第69章 悦悦上幼儿园","第70章 适应期","第71章 事业巅峰","第72章 回馈社会","第73章 家庭危机","第74章 康复","第七十五章 十年之约","第76章 念念中考","第77章 高中生活","第78章 悦悦的天赋","第79章 兄妹情深","第80章 顾母年迈","第81章 尽孝","第82章 念念高考","第83章 大学新生活","第84章 悦悦小学","第85章 事业传承","第86章 初恋萌芽","第87章 见家长","第88章 毕业","第89章 研究生生活","第90章 悦悦成长","第91章 念念求婚","第九十二章 儿子婚礼","第93章 退休生活","第94章 含饴弄孙","第95章 悦悦出嫁","第96章 金婚纪念","第97章 晚年时光","第98章 传承","第99章 回首往事","第一百章 永恒的爱"];
+        
         let html = '';
         for (let i = 1; i <= 100; i++) {
-            html += `<div class="chapter-item"><a href="chapter_${i}.html">${chapterTitles[i-1]}</a></div>`;
+            html += `<li><a href="chapter_${i}.html">${chapterTitles[i-1]}</a></li>`;
         }
         document.getElementById('chapters').innerHTML = html;
     </script>

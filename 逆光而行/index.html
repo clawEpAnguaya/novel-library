@@ -43,38 +43,29 @@
             border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
         }
-        .chapter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+        .chapter-list ul {
+            list-style: none;
+            padding: 0;
         }
-        .chapter-item {
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+        .chapter-list li {
+            border-bottom: 1px solid #eee;
             transition: all 0.3s;
         }
-        .chapter-item:hover {
-            border-color: #667eea;
+        .chapter-list li:last-child {
+            border-bottom: none;
+        }
+        .chapter-list li:hover {
             background: #f8f9ff;
         }
-        .chapter-item a {
+        .chapter-list li a {
+            display: block;
+            padding: 15px 20px;
             color: #333;
             text-decoration: none;
-            display: flex;
-            align-items: center;
+            font-size: 1.1em;
         }
-        .chapter-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-size: 0.8em;
-            margin-right: 10px;
+        .chapter-list li a:hover {
+            color: #667eea;
         }
         .back-btn {
             display: inline-block;
@@ -101,28 +92,28 @@
         </div>
         <div class="chapter-list">
             <h2>章节目录</h2>
-            <div class="chapter-grid">
-                <div class="chapter-item"><a href="chapter-01.html"><span class="chapter-number">1</span>第1章 玻璃天花板</a></div>
-                <div class="chapter-item"><a href="chapter-02.html"><span class="chapter-number">2</span>第2章 暗流涌动</a></div>
-                <div class="chapter-item"><a href="chapter-03.html"><span class="chapter-number">3</span>第3章 意外的盟友</a></div>
-                <div class="chapter-item"><a href="chapter-04.html"><span class="chapter-number">4</span>第4章 逆风翻盘</a></div>
-                <div class="chapter-item"><a href="chapter-05.html"><span class="chapter-number">5</span>第5章 真相浮现</a></div>
-                <div class="chapter-item"><a href="chapter-06.html"><span class="chapter-number">6</span>第6章 抉择时刻</a></div>
-                <div class="chapter-item"><a href="chapter-07.html"><span class="chapter-number">7</span>第7章 背水一战</a></div>
-                <div class="chapter-item"><a href="chapter-08.html"><span class="chapter-number">8</span>第8章 峰回路转</a></div>
-                <div class="chapter-item"><a href="chapter-09.html"><span class="chapter-number">9</span>第9章 新的征程</a></div>
-                <div class="chapter-item"><a href="chapter-10.html"><span class="chapter-number">10</span>第10章 危机四伏</a></div>
-                <div class="chapter-item"><a href="chapter-11.html"><span class="chapter-number">11</span>第11章 柳暗花明</a></div>
-                <div class="chapter-item"><a href="chapter-12.html"><span class="chapter-number">12</span>第12章 暗度陈仓</a></div>
-                <div class="chapter-item"><a href="chapter-13.html"><span class="chapter-number">13</span>第13章 正面交锋</a></div>
-                <div class="chapter-item"><a href="chapter-14.html"><span class="chapter-number">14</span>第14章 真相大白</a></div>
-                <div class="chapter-item"><a href="chapter-15.html"><span class="chapter-number">15</span>第15章 重整旗鼓</a></div>
-                <div class="chapter-item"><a href="chapter-16.html"><span class="chapter-number">16</span>第16章 情感漩涡</a></div>
-                <div class="chapter-item"><a href="chapter-17.html"><span class="chapter-number">17</span>第17章 终极对决</a></div>
-                <div class="chapter-item"><a href="chapter-18.html"><span class="chapter-number">18</span>第18章 浴火重生</a></div>
-                <div class="chapter-item"><a href="chapter-19.html"><span class="chapter-number">19</span>第19章 尘埃落定</a></div>
-                <div class="chapter-item"><a href="chapter-20.html"><span class="chapter-number">20</span>第20章 逆光而行（大结局）</a></div>
-            </div>
+            <ul>
+                <li><a href="chapter-01.html">第1章 玻璃天花板</a></li>
+                <li><a href="chapter-02.html">第2章 暗流涌动</a></li>
+                <li><a href="chapter-03.html">第3章 意外的盟友</a></li>
+                <li><a href="chapter-04.html">第4章 逆风翻盘</a></li>
+                <li><a href="chapter-05.html">第5章 真相浮现</a></li>
+                <li><a href="chapter-06.html">第6章 抉择时刻</a></li>
+                <li><a href="chapter-07.html">第7章 背水一战</a></li>
+                <li><a href="chapter-08.html">第8章 峰回路转</a></li>
+                <li><a href="chapter-09.html">第9章 新的征程</a></li>
+                <li><a href="chapter-10.html">第10章 危机四伏</a></li>
+                <li><a href="chapter-11.html">第11章 柳暗花明</a></li>
+                <li><a href="chapter-12.html">第12章 暗度陈仓</a></li>
+                <li><a href="chapter-13.html">第13章 正面交锋</a></li>
+                <li><a href="chapter-14.html">第14章 真相大白</a></li>
+                <li><a href="chapter-15.html">第15章 重整旗鼓</a></li>
+                <li><a href="chapter-16.html">第16章 情感漩涡</a></li>
+                <li><a href="chapter-17.html">第17章 终极对决</a></li>
+                <li><a href="chapter-18.html">第18章 浴火重生</a></li>
+                <li><a href="chapter-19.html">第19章 尘埃落定</a></li>
+                <li><a href="chapter-20.html">第20章 逆光而行（大结局）</a></li>
+            </ul>
         </div>
     </div>
 </body>

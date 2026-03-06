@@ -35,26 +35,29 @@
             border-bottom: 3px solid #4facfe;
             padding-bottom: 10px;
         }
-        .chapter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
+        .chapter-list ul {
+            list-style: none;
+            padding: 0;
         }
-        .chapter-item {
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            text-align: center;
+        .chapter-list li {
+            border-bottom: 1px solid #eee;
             transition: all 0.3s;
         }
-        .chapter-item:hover {
-            border-color: #4facfe;
+        .chapter-list li:last-child {
+            border-bottom: none;
+        }
+        .chapter-list li:hover {
             background: #f0f8ff;
         }
-        .chapter-item a {
+        .chapter-list li a {
+            display: block;
+            padding: 15px 20px;
             color: #333;
             text-decoration: none;
-            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .chapter-list li a:hover {
+            color: #4facfe;
         }
         .back-btn {
             display: inline-block;
@@ -76,14 +79,15 @@
     <div class="container">
         <div class="chapter-list">
             <h2>章节目录</h2>
-            <div class="chapter-grid" id="chapters"></div>
+            <ul id="chapters"></ul>
         </div>
     </div>
     <script>
         const chapterTitles = ["第一章 穿越","第二章 衙役生涯","第三章 初识三娘","第四章 商机初现","第五章 火中救人","第六章 暗中调查","第七章 惩治恶少","第八章 药铺经营","第九章 结识孙文远","第十章 流民潮涌","第十一章 拿下长清","第十二章 整军经武","第十三章 济南府尹","第十四章 赵三娘的心意","第十五章 初战李自成","第十六章 扩张之路","第十七章 清军南下","第十八章 德州血战","第十九章 重整旗鼓","第二十章 决战前夕","第二十一章 德州大捷","第二十二章 休养生息","第二十三章 南征北战","第二十四章 围困北京","第二十五章 战后整顿","第二十六章 兵临蜀道","第二十七章 平定蜀中","第二十八章 江南新政","第二十九章 登基称帝","第三十章 北伐中原","第三十一章 天下一统","第三十二章 盛世初现","第三十三章 开疆拓土","第三十四章 科技兴国","第三十五章 盛世华章","第三十六章 晚年岁月","第三十七章 太子监国","第三十八章 边疆风云","第三十九章 最后的教诲","第四十章 新君继位","第四十一章 贞观之治","第四十二章 西域风云","第四十三章 海上丝绸之路","第四十四章 科技革命","第四十五章 盛世危机","第四十六章 传位太子","第四十七章 电力时代","第四十八章 世界大战","第四十九章 新时代","第五十章 百年兴朝","第五十一章 工业腾飞","第52章 现代化进程（2）","第53章 现代化进程（3）","第54章 现代化进程（4）","第55章 现代化进程（5）","第56章 现代化进程（6）","第57章 现代化进程（7）","第58章 现代化进程（8）","第59章 现代化进程（9）","第60章 现代化进程（10）","第六十一章 新世界秩序","第62章 世界格局变化（12）","第63章 世界格局变化（13）","第64章 世界格局变化（14）","第65章 世界格局变化（15）","第66章 世界格局变化（16）","第67章 世界格局变化（17）","第68章 世界格局变化（18）","第69章 世界格局变化（19）","第70章 世界格局变化（20）","第七十一章 太空时代","第72章 新挑战与应对（22）","第73章 新挑战与应对（23）","第74章 新挑战与应对（24）","第75章 新挑战与应对（25）","第76章 新挑战与应对（26）","第77章 新挑战与应对（27）","第78章 新挑战与应对（28）","第79章 新挑战与应对（29）","第80章 新挑战与应对（30）","第八十一章 信息革命","第82章 帝国巅峰（32）","第83章 帝国巅峰（33）","第84章 帝国巅峰（34）","第85章 帝国巅峰（35）","第86章 帝国巅峰（36）","第87章 帝国巅峰（37）","第88章 帝国巅峰（38）","第89章 帝国巅峰（39）","第90章 帝国巅峰（40）","第九十一章 永续发展","第92章 传承与未来（42）","第93章 传承与未来（43）","第94章 传承与未来（44）","第95章 传承与未来（45）","第96章 传承与未来（46）","第97章 传承与未来（47）","第98章 传承与未来（48）","第99章 传承与未来（49）","第一百章 万世基业"];
+        
         let html = '';
         for (let i = 1; i <= 100; i++) {
-            html += `<div class="chapter-item"><a href="chapter_${i}.html">${chapterTitles[i-1]}</a></div>`;
+            html += `<li><a href="chapter_${i}.html">${chapterTitles[i-1]}</a></li>`;
         }
         document.getElementById('chapters').innerHTML = html;
     </script>
