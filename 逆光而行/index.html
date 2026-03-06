@@ -30,16 +30,27 @@
         .cover-image {
             width: 150px;
             height: 200px;
-            background: rgba(255,255,255,0.2);
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
             border-radius: 10px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
+            justify-content: flex-end;
+            font-size: 1.2em;
             font-weight: bold;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 15px;
+        }
+        .cover-image::before {
+            content: '👩‍💼';
+            font-size: 4em;
+            position: absolute;
+            top: 30px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
         }
         .cover-info h1 { 
             font-size: 2em; 
@@ -119,7 +130,7 @@
     <div class="cover-section">
         <a href="../index.html" class="back-btn">← 返回书库</a>
         <div class="cover-content">
-            <div class="cover-image">逆光而行</div>
+            <div class="cover-image">逆光而行<br><span style="font-size:0.7em;font-weight:normal;opacity:0.8">现代言情</span></div>
             <div class="cover-info">
                 <h1>逆光而行</h1>
                 <p class="author">作者：AI创作</p>
