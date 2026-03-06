@@ -45,13 +45,7 @@
             overflow: hidden;
             padding-bottom: 15px;
         }
-        .cover-image::before {
-            content: '👩‍💼';
-            font-size: 4em;
-            position: absolute;
-            top: 30px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
-        }
+/* SVG cover image used */
         .cover-info h1 { 
             font-size: 2em; 
             margin-bottom: 10px;
@@ -130,7 +124,26 @@
     <div class="cover-section">
         <a href="../index.html" class="back-btn">← 返回书库</a>
         <div class="cover-content">
-            <div class="cover-image">逆光而行<br><span style="font-size:0.7em;font-weight:normal;opacity:0.8">现代言情</span></div>
+            <div class="cover-image">
+                <svg viewBox="0 0 150 200" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <!-- 背景 -->
+                    <defs>
+                        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.3)" />
+                            <stop offset="100%" style="stop-color:rgba(255,255,255,0.1)" />
+                        </linearGradient>
+                    </defs>
+                    <!-- 人物头部 -->
+                    <circle cx="75" cy="50" r="25" fill="#ffdbac" />
+                    <!-- 头发 -->
+                    <path d="M50 45 Q75 20 100 45 Q105 55 100 65 Q75 55 50 65 Q45 55 50 45" fill="#4a3728" />
+                    <!-- 身体 -->
+                    <path d="M40 80 Q75 70 110 80 L115 180 L35 180 Z" fill="#667eea" />
+                    <!-- 衣服细节 -->
+                    <path d="M55 80 L75 120 L95 80" fill="#764ba2" opacity="0.5" />
+                </svg>
+                <span style="position:relative;z-index:1;">逆光而行</span>
+            </div>
             <div class="cover-info">
                 <h1>逆光而行</h1>
                 <p class="author">作者：AI创作</p>

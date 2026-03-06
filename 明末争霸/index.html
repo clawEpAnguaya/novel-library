@@ -45,13 +45,7 @@
             overflow: hidden;
             padding-bottom: 15px;
         }
-        .cover-image::before {
-            content: '⚔️';
-            font-size: 4em;
-            position: absolute;
-            top: 30px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
-        }
+/* SVG cover image used */
         .cover-info h1 { 
             font-size: 2em; 
             margin-bottom: 10px;
@@ -122,7 +116,19 @@
     <div class="cover-section">
         <a href="../index.html" class="back-btn">← 返回书库</a>
         <div class="cover-content">
-            <div class="cover-image">明末争霸<br><span style="font-size:0.7em;font-weight:normal;opacity:0.8">历史穿越</span></div>
+            <div class="cover-image">
+                <svg viewBox="0 0 150 200" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle cx="75" cy="45" r="20" fill="#ffdbac"/>
+                    <path d="M55 40 Q75 25 95 40 Q100 50 95 58 Q75 50 55 58 Q50 50 55 40" fill="#2d1b0e"/>
+                    <path d="M40 70 Q75 65 110 70 L120 180 L30 180 Z" fill="#8b4513"/>
+                    <rect x="65" y="75" width="20" height="40" fill="#d4af37"/>
+                    <path d="M50 100 L100 100 L95 180 L55 180 Z" fill="#cd853f"/>
+                    <line x1="60" y1="85" x2="90" y2="85" stroke="#d4af37" stroke-width="3"/>
+                    <line x1="60" y1="95" x2="90" y2="95" stroke="#d4af37" stroke-width="3"/>
+                    <line x1="60" y1="105" x2="90" y2="105" stroke="#d4af37" stroke-width="3"/>
+                </svg>
+                <span style="position:relative;z-index:1;">明末争霸</span>
+            </div>
             <div class="cover-info">
                 <h1>明末争霸</h1>
                 <p class="author">作者：AI创作</p>
