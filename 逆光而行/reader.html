@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逆光而行 - 在线阅读</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --card-bg: white;
+            --border-color: #eee;
+            --accent-color: #667eea;
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a2e;
+            --text-color: #e0e0e0;
+            --card-bg: #16213e;
+            --border-color: #333;
+            --accent-color: #8b9dc3;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif SC", serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+        
+        .toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .toolbar button {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .toolbar button:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 80px auto 20px;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        
+        .nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        h1 {
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        .content {
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        
+        .content p {
+            margin-bottom: 1.5em;
+            text-indent: 2em;
+        }
+        
+        .chapter-nav {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .chapter-nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            border-radius: 20px;
+        }
+        
+        .chapter-nav a:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 20px; margin-top: 70px; }
+            .toolbar { flex-wrap: wrap; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <button onclick="toggleTheme()">🌙 暗黑模式</button>
+        <button onclick="changeFontSize(-1)">A-</button>
+        <button onclick="changeFontSize(1)">A+</button>
+        <button onclick="window.location.href='index.html'">📚 目录</button>
+    </div>
+    
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">← 返回目录</a>
+        </div>
+        
+        <h1 id="chapter-title">加载中...</h1>
+        
+        <div class="content" id="content">
+            <p>正在加载章节内容...</p>
+        </div>
+        
+        <div class="chapter-nav">
+            <a id="prev-chapter" href="#">← 上一章</a>
+            <a id="next-chapter" href="#">下一章 →</a>
+        </div>
+    </div>
+    
+    <script>
+        // 章节数据
+        const chapters = [
+            {id: "01", title: "第一章 玻璃天花板"},
+            {id: "02", title: "第二章 暗流涌动"},
+            {id: "03", title: "第三章 意外相遇"},
+            {id: "04", title: "第四章 职场博弈"},
+            {id: "05", title: "第五章 真相浮现"},
+            {id: "06", title: "第六章 情感纠葛"},
+            {id: "07", title: "第七章 逆风翻盘"},
+            {id: "08", title: "第八章 新的开始"},
+            {id: "09", title: "第九章 危机四伏"},
+            {id: "10", title: "第十章 绝地反击"},
+            {id: "11", title: "第十一章 真相大白"},
+            {id: "12", title: "第十二章 破镜重圆"},
+            {id: "13", title: "第十三章 共同成长"},
+            {id: "14", title: "第十四章 事业巅峰"},
+            {id: "15", title: "第十五章 情感抉择"},
+            {id: "16", title: "第十六章 携手并进"},
+            {id: "17", title: "第十七章 风雨同舟"},
+            {id: "18", title: "第十八章 逆光而行"},
+            {id: "19", title: "第十九章 黎明前的黑暗"},
+            {id: "20", title: "第二十章 大结局"}
+        ];
+        
+        // 获取当前章节
+        const currentFile = window.location.pathname.split('/').pop();
+        const currentId = currentFile.match(/chapter-(\d+)/)?.[1] || '01';
+        const currentIndex = chapters.findIndex(c => c.id === currentId);
+        const chapter = chapters[currentIndex];
+        
+        // 设置标题
+        document.getElementById('chapter-title').textContent = chapter.title;
+        document.title = chapter.title + ' - 逆光而行';
+        
+        // 设置导航
+        if (currentIndex > 0) {
+            document.getElementById('prev-chapter').href = 'chapter-' + chapters[currentIndex-1].id + '.html';
+        } else {
+            document.getElementById('prev-chapter').style.visibility = 'hidden';
+        }
+        
+        if (currentIndex < chapters.length - 1) {
+            document.getElementById('next-chapter').href = 'chapter-' + chapters[currentIndex+1].id + '.html';
+        } else {
+            document.getElementById('next-chapter').style.visibility = 'hidden';
+        }
+        
+        // 加载内容
+        fetch('chapter-' + currentId + '.md')
+            .then(r => r.text())
+            .then(text => {
+                const lines = text.split('\n');
+                let html = '';
+                let inContent = false;
+                for (const line of lines) {
+                    if (line.startsWith('#')) continue;
+                    if (line.trim() && !inContent) inContent = true;
+                    if (inContent && line.trim()) {
+                        html += '<p>' + line.trim() + '</p>';
+                    }
+                }
+                document.getElementById('content').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('content').innerHTML = '<p>请阅读原始章节文件</p>';
+            });
+        
+        // 暗黑模式
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            html.setAttribute('data-theme', current === 'dark' ? '' : 'dark');
+            localStorage.setItem('theme', current === 'dark' ? '' : 'dark');
+        }
+        
+        // 恢复主题
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // 字号调整
+        let fontSize = 1.1;
+        function changeFontSize(delta) {
+            fontSize += delta * 0.1;
+            if (fontSize < 0.8) fontSize = 0.8;
+            if (fontSize > 1.5) fontSize = 1.5;
+            document.querySelector('.content').style.fontSize = fontSize + 'em';
+            localStorage.setItem('fontSize', fontSize);
+        }
+        
+        // 恢复字号
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            fontSize = parseFloat(savedFontSize);
+            document.querySelector('.content').style.fontSize = fontSize + 'em';
+        }
+    </script>
+</body>
+</html>

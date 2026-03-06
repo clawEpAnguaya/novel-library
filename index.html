@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说书库 - 在线阅读</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif SC", serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        .novels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .novel-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .novel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+        .novel-cover {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .novel-info { padding: 25px; }
+        .novel-title {
+            font-size: 1.5em;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .novel-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #666;
+        }
+        .novel-desc {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .read-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        .read-btn:hover { opacity: 0.9; }
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.6);
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .novels-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 小说书库</h1>
+            <p>精品原创小说在线阅读</p>
+        </header>
+
+        <div class="novels-grid">
+            <div class="novel-card">
+                <div class="novel-cover">逆光而行</div>
+                <div class="novel-info">
+                    <h2 class="novel-title">逆光而行</h2>
+                    <div class="novel-meta">
+                        <span class="tag">20章</span>
+                        <span class="tag">现代言情</span>
+                        <span class="tag">已完结</span>
+                    </div>
+                    <p class="novel-desc">关于成长、爱情与自我救赎的故事。女主角林晓薇在职场与情感的双重压力下，逆光而行，最终找到人生方向。</p>
+                    <a href="逆光而行/index.html" class="read-btn">开始阅读 →</a>
+                </div>
+            </div>
+
+            <div class="novel-card">
+                <div class="novel-cover" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">甜宠逆袭</div>
+                <div class="novel-info">
+                    <h2 class="novel-title">甜宠逆袭</h2>
+                    <div class="novel-meta">
+                        <span class="tag">100章</span>
+                        <span class="tag">甜宠</span>
+                        <span class="tag">已完结</span>
+                    </div>
+                    <p class="novel-desc">甜蜜宠爱与逆袭成长的完美结合，一段让人心动的浪漫旅程。</p>
+                    <a href="甜宠逆袭/index.html" class="read-btn">开始阅读 →</a>
+                </div>
+            </div>
+
+            <div class="novel-card">
+                <div class="novel-cover" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">明末争霸</div>
+                <div class="novel-info">
+                    <h2 class="novel-title">明末争霸</h2>
+                    <div class="novel-meta">
+                        <span class="tag">100章</span>
+                        <span class="tag">历史</span>
+                        <span class="tag">已完结</span>
+                    </div>
+                    <p class="novel-desc">明末乱世，群雄逐鹿。一段波澜壮阔的历史传奇，权谋与战争交织的史诗篇章。</p>
+                    <a href="明末争霸/index.html" class="read-btn">开始阅读 →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 小说书库 | 在线阅读</p>
+        </footer>
+    </div>
+</body>
+</html>
