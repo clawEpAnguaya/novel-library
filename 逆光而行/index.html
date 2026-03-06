@@ -14,14 +14,51 @@
             min-height: 100vh;
         }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        header {
+        .cover-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 20px;
-            text-align: center;
+            padding: 40px 20px;
+            position: relative;
         }
-        header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        header .meta { opacity: 0.9; }
+        .cover-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .cover-image {
+            width: 150px;
+            height: 200px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+        .cover-info h1 { 
+            font-size: 2em; 
+            margin-bottom: 10px;
+        }
+        .cover-info .author {
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        .cover-info .meta { 
+            opacity: 0.8;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .cover-info .intro-short {
+            opacity: 0.85;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
         .intro {
             background: white;
             padding: 30px;
@@ -79,11 +116,18 @@
     </style>
 </head>
 <body>
-    <header>
+    <div class="cover-section">
         <a href="../index.html" class="back-btn">← 返回书库</a>
-        <h1>逆光而行</h1>
-        <p class="meta">现代言情 · 20章 · 已完结</p>
-    </header>
+        <div class="cover-content">
+            <div class="cover-image">逆光而行</div>
+            <div class="cover-info">
+                <h1>逆光而行</h1>
+                <p class="author">作者：AI创作</p>
+                <p class="meta">现代言情 · 20章 · 已完结</p>
+                <p class="intro-short">职场与情感的双重压力下，逆光而行的励志故事</p>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="intro">
             <h2>作品简介</h2>
